@@ -101,4 +101,56 @@ class Linkedlist:
             prev = current
             current = current.next
         return False
+    
+    def delete_head(self):
+        if self.head:
+            self.head = self.head.next
+    
+    def delete_tail(self):
+        prev=None
+        current = self.head
+
+        if current is None:
+            return False
+        
+        if current.next is None:
+            self.head = None
+            return True
+
+        while current:
+            if current.next==None:
+                prev.next = None
+                return True
+            prev = current
+            current = current.next
+    
+    def insert_at_position(self,index, data):
+        prev = None
+        current = self.head
+        count = 0
+        new_node=Node(data)
+
+        while current:
+            if count == index:
+                if prev is None:
+                    new_node.next=self.head
+                    self.head = new_node
+                    return True
+                else:
+                    new_node.next=current
+                    prev.next=new_node
+                    return True
+            count+=1
+            prev=current
+            current=current.next
+        if count == index:
+            if self.head:
+                prev.next = new_node
+            else:
+                self.head = new_node
+            return True
+        return False
+                
+
+        
             
