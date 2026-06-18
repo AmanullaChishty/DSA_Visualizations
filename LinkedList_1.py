@@ -150,7 +150,42 @@ class Linkedlist:
                 self.head = new_node
             return True
         return False
-                
+    
+    def delete_at_index(self, index):
+        prev = None
+        current = self.head
+        count = 0
+        
+        while current:
+            if count == index:
+                if prev is None:
+                    self.head = current.next
+                    return True
+                else:
+                    prev.next = current.next
+                    return True
+            count+=1
+            prev = current
+            current = current.next
+        
+        return False
+    
+    def reverse(self):
+        prev = None
+        current = self.head
+
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+
+        self.head = prev
+
+        return True
+
+            
+
 
         
             
