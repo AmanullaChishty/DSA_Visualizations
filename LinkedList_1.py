@@ -175,14 +175,49 @@ class Linkedlist:
         current = self.head
 
         while current:
-            next_node = current.next
-            current.next = prev
-            prev = current
-            current = next_node
+            next_node = current.next #Save
+            current.next = prev #Reverse
+            prev = current #Advance
+            current = next_node #Advance
 
         self.head = prev
 
         return True
+
+    def merge_sorted_list(self,list1,list2):
+        if not list2:
+            return list1
+        if not list1:
+            return list2
+        
+        if list1.val<=list2.val:
+            head = list1
+            tail=list1
+            list1 = list1.next
+        else:
+            head=list2
+            tail=list2
+            list2 = list2.next
+            
+
+        while list1 and list2:
+            if list1.val<=list2.val:
+                tail.next=list1
+                tail = tail.next
+                list1 = list1.next
+            else:
+                tail.next=list2
+                tail = tail.next
+                list2 = list2.next
+        
+        if not list2:
+            tail.next=list1
+        else:
+            tail.next=list2
+
+        return head 
+        
+
 
             
 
