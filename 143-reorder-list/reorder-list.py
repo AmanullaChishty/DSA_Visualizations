@@ -35,14 +35,14 @@ class Solution:
         first = head
         second = prev
         while second:
-            tmp1 = first.next
-            tmp2 = second.next
+            tmp1 = first.next  #Save the pointers
+            tmp2 = second.next #Save the pointers
 
-            first.next = second
-            second.next = tmp1
+            first.next = second #merging
+            second.next = tmp1  #reconnecting the remainder of first
 
-            first = tmp1
-            second = tmp2
+            first = tmp1 #advance
+            second = tmp2 #advance
 
 
 
