@@ -20,14 +20,14 @@ class Solution:
         while cur2:
             lenB+=1
             cur2 = cur2.next
-        print(lenA,lenB)
+
         cur1 = headA
         cur2 = headB
 
         if lenA>lenB:
             for _ in range(lenA-lenB):
                 cur1 = cur1.next
-        else:
+        elif lenB > lenA:
             for _ in range(lenB-lenA):
                 cur2 = cur2.next
         
