@@ -33,7 +33,15 @@ class DoublyLinkedList:
             new_node.next = self.head
             self.head = new_node
         self.size+=1
-    
+        
+    def remove_duplicates(self):
+        cur = self.head
+        
+        while cur and cur.next:
+            if cur.data == cur.next.data:
+                cur.next = cur.next.next
+            else:
+                cur = cur.next
     
         
         
