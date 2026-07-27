@@ -48,7 +48,6 @@ class LRUCache:
             node.value = value
             self.remove(node)
             self.insert_at_tail(node)
-
         else:
             if len(self.cache) == self.capacity:
                 node = self.dummy_head.next
